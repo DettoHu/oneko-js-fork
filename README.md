@@ -16,10 +16,6 @@ play with her by dragging her around.
 
 _(this is not abooz pls forgib im just playing)_
 
-cat sleep on progress bar on double click. wake her up by double clicking again.
-
-![demo](/assets/preview/double-click.gif)
-
 right-click for kuroneko. kuroneko will come back if you kept her in the previous session.
 
 ![demo](/assets/preview/kuroneko.gif)
