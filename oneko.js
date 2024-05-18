@@ -1,4 +1,5 @@
 // oneko.js: https://github.com/adryd325/oneko.js
+//removed unnecessary functions
 
 (async function oneko() {
   const nekoEl = document.createElement("div");
@@ -220,60 +221,6 @@
         return;
       }
 
-      // If Full App Display is on, sleep on its progress bar instead
-      const fullAppDisplay = document.getElementById("fad-progress");
-      if (fullAppDisplay) {
-        mousePosX = fullAppDisplay.getBoundingClientRect().right - 16;
-        mousePosY = fullAppDisplay.getBoundingClientRect().top - 12;
-        return;
-      }
-
-      // Get the far right and top of the progress bar
-      const progressBar = document.querySelector(
-        ".main-nowPlayingBar-center .playback-progressbar"
-      );
-      const progressBarRight = progressBar.getBoundingClientRect().right;
-      const progressBarTop = progressBar.getBoundingClientRect().top;
-      const progressBarBottom = progressBar.getBoundingClientRect().bottom;
-
-      // Make the cat sleep on the progress bar
-      mousePosX = progressBarRight - 16;
-      mousePosY = progressBarTop - 8;
-
-      // Get the position of the remaining time
-      const remainingTime = document.querySelector(
-        ".main-playbackBarRemainingTime-container"
-      );
-      const remainingTimeLeft = remainingTime.getBoundingClientRect().left;
-      const remainingTimeBottom = remainingTime.getBoundingClientRect().bottom;
-      const remainingTimeTop = remainingTime.getBoundingClientRect().top;
-
-      // Get the position of elapsed time
-      const elapsedTime = document.querySelector(
-        ".playback-bar__progress-time-elapsed"
-      );
-      const elapsedTimeRight = elapsedTime.getBoundingClientRect().right;
-      const elapsedTimeLeft = elapsedTime.getBoundingClientRect().left;
-
-      // If the remaining time is on top right of the progress bar, make the cat sleep to the a little bit to the left of the remaining time
-      // Theme compatibility
-      if (
-        remainingTimeLeft < progressBarRight &&
-        remainingTimeTop < progressBarBottom &&
-        progressBarTop - remainingTimeBottom < 32
-      ) {
-        mousePosX = remainingTimeLeft - 16;
-
-        // Comfy special case
-        if (Spicetify.Config.current_theme === "Comfy") {
-          mousePosY = progressBarTop - 14;
-        }
-
-        // Move the cat to the left of elapsed time if it is too close to the remaining time (Nord theme)
-        if (remainingTimeLeft - elapsedTimeRight < 32) {
-          mousePosX = elapsedTimeLeft - 16;
-        }
-      }
     });
 
     window.onekoInterval = setInterval(frame, 100);
@@ -373,21 +320,6 @@
     const diffY = nekoPosY - mousePosY;
     const distance = Math.sqrt(diffX ** 2 + diffY ** 2);
 
-    // Cat has to sleep on top of the progress bar
-    if (
-      forceSleep &&
-      Math.abs(diffY) < nekoSpeed &&
-      Math.abs(diffX) < nekoSpeed
-    ) {
-      // Make the cat sleep exactly on the top of the progress bar
-      nekoPosX = mousePosX;
-      nekoPosY = mousePosY;
-      nekoEl.style.left = `${nekoPosX - 16}px`;
-      nekoEl.style.top = `${nekoPosY - 16}px`;
-
-      idle();
-      return;
-    }
 
     if ((distance < nekoSpeed || distance < 48) && !forceSleep) {
       idle();
