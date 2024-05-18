@@ -1,4 +1,4 @@
-# Spicetify Oneko
+# Oneko fork 
 
 ## This is a fork of [oneko.js](https://github.com/adryd325/oneko.js). I did not make this. All credit goes to [@adryd325](https://github.com/adryd325)
 
