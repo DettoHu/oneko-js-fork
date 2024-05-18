@@ -4,7 +4,7 @@
 
 cat follow mouse real.
 
-oneko with additional features made for spicetify.
+oneko with additional features.
 
 ![demo](/assets/preview/preview.gif)
 
