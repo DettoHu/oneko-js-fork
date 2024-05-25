@@ -14,8 +14,6 @@ play with her by dragging her around.
 
 ![demo](/assets/preview/drag-2.gif)
 
-_(this is not abooz pls forgib im just playing)_
-
 right-click for kuroneko. kuroneko will come back if you kept her in the previous session.
 
 ![demo](/assets/preview/kuroneko.gif)
